@@ -8,10 +8,22 @@ Unreleased
 -   Update Click dependency to >= 8.0.
 
 
-Version 2.0.1
+Version 2.0.2
 -------------
 
 Unreleased
+
+-   Fix type annotation for ``teardown_request``. :issue:`4093`
+-   Fix type annotation for ``before_request`` and ``before_app_request``
+    decorators. :issue:`4104`
+-   Fixed the issue where typing requires template global
+    decorators to accept functions with no arguments. :issue:`4098`
+
+
+Version 2.0.1
+-------------
+
+Released 2021-05-21
 
 -   Re-add the ``filename`` parameter in ``send_from_directory``. The
     ``filename`` parameter has been renamed to ``path``, the old name
@@ -31,6 +43,19 @@ Unreleased
 -   Roll back a change to the order that URL matching was done. The
     URL is again matched after the session is loaded, so the session is
     available in custom URL converters. :issue:`4053`
+-   Re-add deprecated ``Config.from_json``, which was accidentally
+    removed early. :issue:`4078`
+-   Improve typing for some functions using ``Callable`` in their type
+    signatures, focusing on decorator factories. :issue:`4060`
+-   Nested blueprints are registered with their dotted name. This allows
+    different blueprints with the same name to be nested at different
+    locations. :issue:`4069`
+-   ``register_blueprint`` takes a ``name`` option to change the
+    (pre-dotted) name the blueprint is registered with. This allows the
+    same blueprint to be registered multiple times with unique names for
+    ``url_for``. Registering the same blueprint with the same name
+    multiple times is deprecated. :issue:`1091`
+-   Improve typing for ``stream_with_context``. :issue:`4052`
 
 
 Version 2.0.0
